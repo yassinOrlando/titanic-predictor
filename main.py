@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+import numpy as np
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -12,4 +14,10 @@ def about():
 
 @app.route("/datasets")
 def datasets():
-    return render_template('pages/datasets.html')
+    passengers_data = pd.read_csv("titanic_data/train.csv")
+    passengers_test_data = pd.read_csv("titanic_data/test.csv")
+
+    return render_template('pages/datasets.html', 
+        training_table=[passengers_data.to_html(classes='data', header="true")], 
+        test_table=[passengers_test_data.to_html(classes='data', header="true")]
+    )
