@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+Plots
+{% endblock %}
+
+{% block main %}
+
+<div class="content-container">
+    <h2>Statistics of the passengers</h2>
+    <p class="lead"> Here you can find interesting data about the passengers of The Titanic </p>
+
+    <div class="tabs-container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#class">By class</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#age">By age</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#sex">By sex</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#family">By family members</a>
+            </li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active show" id="class">
+                <h3>Plots about class</h3>
+                <img src="https://picsum.photos/500/700" alt="ml_score">
+            </div>
+            <div class="tab-pane fade" id="age">
+                <h3>Plots about age</h3>
+                <img src="https://picsum.photos/500/700" alt="ml_score">
+            </div>
+            <div class="tab-pane fade" id="sex">
+                <h3>Plots about sex.</h3>
+                <img src="https://picsum.photos/500/700" alt="ml_score">
+            </div>
+            <div class="tab-pane fade" id="family">
+                <h3>Plots about family members</h3>
+                <img src="https://picsum.photos/500/700" alt="ml_score">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

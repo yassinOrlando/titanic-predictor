@@ -21,3 +21,7 @@ def datasets():
         training_table=[passengers_data.to_html(classes='data', header="true")], 
         test_table=[passengers_test_data.to_html(classes='data', header="true")]
     )
+
+@app.route("/interesting-statistics")
+def plots():
+    return render_template('pages/plots.html')
