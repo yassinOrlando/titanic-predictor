@@ -27,20 +27,44 @@ Plots
         </ul>
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade active show" id="class">
-                <h3>Plots about class</h3>
-                <img src="https://picsum.photos/500/700" alt="ml_score">
+                <img src="{{ url_for('static', filename='img/by_class/psg_data_by_class_bar_chart.jpg') }}" alt="..."
+                    class="plot-img">
+                <img src="{{ url_for('static', filename='img/by_class/psg_data_by_class_pie_chart.jpg') }}" alt="..."
+                    class="plot-img">
+                <img src="{{ url_for('static', filename='img/by_class/psg_survived_by_class_pie_chart.jpg') }}"
+                    alt="..." class="plot-img">
+                <img src="{{ url_for('static', filename='img/by_class/psg_died_by_class_pie_chart.jpg') }}" alt="..."
+                    class="plot-img">
+
+                <!-- <img src="../../plot_images/by_class/psg_data_by_class_bar_chart.jpg" alt="..."> -->
             </div>
             <div class="tab-pane fade" id="age">
-                <h3>Plots about age</h3>
-                <img src="https://picsum.photos/500/700" alt="ml_score">
+                <img src="{{ url_for('static', filename='img/by_age/psg_data_by_age_hist_chart.jpg') }}" alt="..."
+                    class="plot-img">
+                <img src="{{ url_for('static', filename='img/by_age/psg_survived_by_age_hist_chart.jpg') }}" alt="..."
+                    class="plot-img">
+                <img src="{{ url_for('static', filename='img/by_age/psg_died_by_age_hist_chart.jpg') }}" alt="..."
+                    class="plot-img">
             </div>
             <div class="tab-pane fade" id="sex">
-                <h3>Plots about sex.</h3>
-                <img src="https://picsum.photos/500/700" alt="ml_score">
+                <img src="{{ url_for('static', filename='img/by_sex/psg_data_by_sex_bar_chart.jpg') }}" alt="..."
+                    class="plot-img">
+                <img src="{{ url_for('static', filename='img/by_sex/psg_data_by_sex_pie_chart.jpg') }}" alt="..."
+                    class="plot-img">
+                <img src="{{ url_for('static', filename='img/by_sex/psg_survived_by_sex_pie_chart.jpg') }}" alt="..."
+                    class="plot-img">
+                <img src="{{ url_for('static', filename='img/by_sex/psg_died_by_sex_pie_chart.jpg') }}" alt="..."
+                    class="plot-img">
             </div>
             <div class="tab-pane fade" id="family">
-                <h3>Plots about family members</h3>
-                <img src="https://picsum.photos/500/700" alt="ml_score">
+                <img src="{{ url_for('static', filename='img/by_family/psg_data_by_family_hist_chart.jpg') }}" alt="..."
+                    class="plot-img">
+                <img src="{{ url_for('static', filename='img/by_family/psg_data_by_family_pie_chart.jpg') }}" alt="..."
+                    class="plot-img">
+                <img src="{{ url_for('static', filename='img/by_family/psg_survived_by_family_pie_chart.jpg') }}"
+                    alt="..." class="plot-img">
+                <img src="{{ url_for('static', filename='img/by_family/psg_died_by_family_pie_chart.jpg') }}" alt="..."
+                    class="plot-img">
             </div>
         </div>
     </div>

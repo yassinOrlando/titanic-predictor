@@ -67,6 +67,15 @@ main {
   margin: 0 auto;
 }
 
+.plot-img{
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .plot-img{
+    width: 50%;
+  }
+}
+
 #footer {
   margin-top: 10px;
   width: 100%;
