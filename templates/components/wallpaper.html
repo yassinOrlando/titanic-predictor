@@ -1,0 +1,13 @@
+{% macro wallpaper(img='cruise-ship.jpg', title='placeholder', lead='lead placeholder', type=None) -%}
+<div class="wallpaper-container">
+    <img src="../../static/img/{{img}}" alt="{{img}}" class="wallpaper"> <br>
+    <div class="wallpaper-text">
+        <h1> {{ title }} </h1> <br>
+        <p class="lead"> {{ lead }} </p> <br>
+
+        {% if type == 'main' %}
+        <button class="btn btn-lg btn-success" type="button">Get your prediction</button>
+        {% endif %}
+    </div>
+</div>
+{%- endmacro %}

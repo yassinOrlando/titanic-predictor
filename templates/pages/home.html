@@ -1,27 +1,13 @@
 {% extends "base.html" %}
+{% import 'components/wallpaper.html' as wallpaper %}
 
 {% block title %}
 Home
 {% endblock %}
 
 {% block main %}
-<div class="wallpaper-container">
-    <img src="{{ url_for('static', filename='img/cruise-ship.jpg') }}" alt="cruise-ship" class="wallpaper"> <br>
-    <!-- <img src="../../static/img/cruise-ship.jpg" alt="cruise-ship" class="wallpaper"> <br> -->
-    <div class="wallpaper-text">
-        <h1>Would you have survived The Titanic?</h1> <br>
-        <p class="lead">Know this with the magic of machine learning</p> <br>
-        <button class="btn btn-lg btn-success" type="button">Get your prediction</button>
-    </div>
-</div>
 
-<div class="wallpaper-container">
-    <img src="{{ url_for('static', filename='img/underwater.jpg') }}" alt="cruise-ship" class="wallpaper"> <br>
-    <!-- <img src="../../static/img/cruise-ship.jpg" alt="cruise-ship" class="wallpaper"> <br> -->
-    <div class="wallpaper-text">
-        <h1>Would you have survived The Titanic?</h1> <br>
-        <p class="lead">Know this with the magic of machine learning</p> <br>
-        <button class="btn btn-lg btn-success" type="button">Get your prediction</button>
-    </div>
-</div>
+{{ wallpaper.wallpaper(title='Would you have survived The Titanic?', lead='Know this with the magic of machine learning', type='main') }}
+
+{{ wallpaper.wallpaper(title='Would you have survived The Titanic?', lead='Know this with the magic of machine learning', type='main', img='underwater.jpg') }}
 {% endblock %}
