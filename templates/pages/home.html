@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block main %}
+<div class="wallpaper-container">
+    <img src="{{ url_for('static', filename='img/cruise-ship.jpg') }}" alt="cruise-ship" class="wallpaper"> <br>
+    <div class="wallpaper-text">
+        <h1>Would you have survived The Titanic?</h1> <br>
+        <h3>Know this with the magic of machine learning</h3>
+    </div>
+</div>
+
+<div class="wallpaper-container">
+    <img src="{{ url_for('static', filename='img/underwater.jpg') }}" alt="underwater" class="wallpaper">
+</div>
+
+{% endblock %}
