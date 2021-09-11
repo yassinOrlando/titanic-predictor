@@ -6,11 +6,72 @@ About
 {% endblock %}
 
 {% block main %}
-{{ wallpaper.wallpaper(title='Would you have survived The Titanic?', lead='Know this with the magic of machine learning', img='underwater.jpg') }}
+{{ wallpaper.wallpaper(title='Information about this project', lead='Here you can find additional information about this
+website', img='underwater.jpg') }}
 
 <div class="content-container">
-    <h2>Lorem ipsum</h2>
-    <p class="lead">Lorem ipsum</p>
-    <p>Lorem ipsum dolor asimet</p>
+    <h2>What was used?</h2>
+    <p class="lead">Things that helped this project to be done</p>
+
+    <img src="{{ url_for('static', filename='img/proj-stack.jpg') }}" alt="Project stack" class="plot-img">
+
+    <br> <br>
+
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">For the data</div>
+                        <p>Kaggle: website where the datasets come from. It is an online community of data scientists and machine learning practitioners where users can find and publish data sets</p>
+                        <p>Numpy: It is a Python library that adds support for large multi-dimensional arrays and matrices</p>
+                        <p>Pandas: It is a Python library for data manipulation and analysis</p>
+                        <p>Matplotlib: It is a plotting library for Python and NumPy. It provides an object-oriented API for embedding drawings into applications using a common GUI</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">For the ML model</div>
+                        <p>Python: A general purpose programming language</p>
+                        <p>Jupyter: It is a project and community whose goal is to "develop open-source software, open-standards, and services for interactive computing across dozens of programming languages"</p>
+                        <p>Scikit-learn: a machine learning library for Python</p>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">For the website</div>
+                        <p>Flask: a web micro-framework based on Python </p>
+                        <p>Bootstrap: A CSS library with many UI components</p>
+                        <p>Bootswatch: A theme library for bootstrap</p>
+                        <p>Heroku: It is a platform to build, run and scale web applications </p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
 </div>
+
+<div class="content-container">
+    <h2>The author</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <div class="card col-lg-8 offset-lg-4">
+                <img src="{{ url_for('static', filename='img/yassinovp.jpg') }}" alt="My photo" >
+                <div class="card-body">
+                    <h5 class="card-title">Yassín Orlando Vázquez Paz</h5>
+                    <p class="card-text"> Web developer and Data scientist </p>
+                    <a href="https://yassinovp.xyz/about-me/" target="_blank" class="btn btn-primary"> See my personal
+                        website and CV </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <img src="{{ url_for('static', filename='img/online-cv-website.jpg') }}" alt="My photo" class="col-lg-9">
+        </div>
+    </div>
+
+
+</div>
+
 {% endblock %}
