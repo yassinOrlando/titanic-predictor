@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% import 'components/wallpaper.html' as wallpaper %}
+
+{% block title %}
+Datasets
+{% endblock %}
+
+{% block main %}
+
+{{ wallpaper.wallpaper(title="What data is used for this project?", lead='Here you will find the datasets used to make
+this project possible') }}
+
+<div class="content-container">
+    <h2>Training data</h2>
+    <p class="lead"> This is the 80% of the total data, used to train the ML model </p>
+
+    <div class="table">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Column heading</th>
+                    <th scope="col">Column heading</th>
+                    <th scope="col">Column heading</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Default</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr>
+                    <th scope="row">Default</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr>
+                    <th scope="row">Default</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr>
+                    <th scope="row">Default</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="content-container">
+    <h2>Testing data</h2>
+    <p class="lead"> This is the 20% of the total data, used to test the ML model </p>
+
+    <div class="table">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Column heading</th>
+                    <th scope="col">Column heading</th>
+                    <th scope="col">Column heading</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Default</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr>
+                    <th scope="row">Default</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr>
+                    <th scope="row">Default</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+                <tr>
+                    <th scope="row">Default</th>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                    <td>Column content</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="content-container">
+    <h2>Result</h2>
+    <p class="lead"> This is the score of the ML model </p>
+
+    <img src="https://picsum.photos/500" alt="ml_score">
+</div>
+
+{% endblock %}

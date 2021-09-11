@@ -32,6 +32,7 @@ main {
 @media (min-width: 600px) {
   .wallpaper-text {
     top: 0%;
+    width: 30%;
     transform: translate(-50%, 70%);
   }
   .wallpaper {
@@ -43,7 +44,22 @@ main {
   
 }
 
+.content-container{
+  width: 100%;
+  min-height: 50vh;
+  padding: 10px;
+  text-align: center;
+}
+.content-container img{
+  max-width: 100%;
+}
+.content-container .table{
+  overflow-y: scroll;
+  max-height: 200px;
+}
+
 #footer {
+  margin-top: 10px;
   width: 100%;
   padding: 25px;
   text-align: center;
