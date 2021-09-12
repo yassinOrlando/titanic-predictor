@@ -25,3 +25,7 @@ def datasets():
 @app.route("/interesting-statistics")
 def plots():
     return render_template('pages/plots.html')
+
+@app.route("/prediction")
+def predictions_page():
+    return render_template('pages/prediction.html')

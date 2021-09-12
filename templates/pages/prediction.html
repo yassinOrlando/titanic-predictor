@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% import 'components/wallpaper.html' as wallpaper %}
+
+{% block title %}
+Predictions
+{% endblock %}
+
+{% block main %}
+
+{{ wallpaper.wallpaper(title='Add some data to make a new passenger', lead='Know this with the magic of machine
+learning', type='main') }}
+
+<div class="content-container">
+    <div class="row justify-content-center">
+        <div class="card col-lg-6" style="text-align: start;">
+            <h3 class="card-header">Add some data to make a new passenger</h3>
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Passenger name</label>
+                    <input type="text" class=" form-control" id="name" name="name" placeholder="Jon/Jane Doe">
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" min="0" max="99" class=" form-control" id="age" name="age" placeholder="25">
+                </div>
+                <div class="mb-3">
+                    <label for="class" class="form-label">Ticket class</label>
+                    <select class="form-select" id="class" name="class" aria-label="Default select example">
+                        <option value="1" selected>1st class</option>
+                        <option value="2">2nd class</option>
+                        <option value="3">3rd class</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="sex" class="form-label">Sex</label>
+                    <select class="form-select" id="sex" name="sex" aria-label="Default select example">
+                        <option value="0" selected>Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="sibsp" class="form-label">Number of siblings and/or wife/husband</label>
+                    <input type="number" min="0" max="9" class=" form-control" id="sibsp" name="sibsp" placeholder="2">
+                </div>
+                <div class="mb-3">
+                    <label for="parch" class="form-label">Number of parents and/or children onboard</label>
+                    <input type="number" min="0" max="9" class=" form-control" id="parch" name="parch" placeholder="2">
+                </div>
+                <div class="mb-3">
+                    <label for="fare" class="form-label">Fare</label>
+                    <input type="number" min="0" max="100" class=" form-control" id="fare" name="fare" placeholder="72.1500">
+                </div>
+                <div class="mb-3">
+                    <label for="embarked" class="form-label">Embarked</label>
+                    <select class="form-select" id="embarked" name="embarked" aria-label="Default select example">
+                        <option value="0" selected>S</option>
+                        <option value="1">C</option>
+                        <option value="2">Q</option>
+                    </select>
+                </div>
+
+                <a href="#" class="btn btn-primary" onclick="sendData()">Submit data</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js_scripts %}
+<script>
+    console.log("Hello world")
+
+    function sendData() {
+        console.log("Sending data to the ML model")
+    }
+</script>
+{% endblock %}
