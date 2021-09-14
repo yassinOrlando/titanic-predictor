@@ -1,4 +1,4 @@
-#menu-icon{
+#menu-icon {
   width: 50px;
 }
 
@@ -47,40 +47,85 @@ main {
   .wallpaper-container {
     height: 90vh;
   }
-  
 }
 
-.content-container{
+.content-container {
   width: 100%;
   min-height: 50vh;
   padding: 10px;
   text-align: center;
 }
-.content-container img{
+.content-container img {
   max-width: 100%;
 }
-.content-container .table{
+.content-container .table {
   overflow-y: scroll;
   max-height: 200px;
 }
 
-.tabs-container{
+.tabs-container {
   width: 95%;
   margin: 0 auto;
 }
 
-.plot-img{
+.plot-img {
   width: 100%;
 }
 @media (min-width: 600px) {
-  .plot-img{
+  .plot-img {
     width: 50%;
   }
 }
 
-.card img{
+.card img {
   margin: 0 auto;
 }
+
+/* In the result of the model */
+#prob-container {
+  width: 100%;
+}
+
+#surv-prob,
+#die-prob {
+  text-align: center;
+  padding: 5px;
+}
+
+#surv-prob{
+  background-color: green;
+  width: 80%;
+}
+#die-prob {
+  background-color: red;
+  width: 20%;
+}
+
+.final-beredict {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: white;
+  margin: 0 auto;
+  text-align: center;
+
+  padding: 15px;
+}
+
+.surv-beredict{
+  border: 3px solid green;
+  color: green;
+}
+
+.die-beredict{
+  border: 3px solid red;
+  color: red;
+}
+
 
 #footer {
   margin-top: 10px;
@@ -89,7 +134,7 @@ main {
   text-align: center;
 }
 
-#footer a{
+#footer a {
   text-decoration: none;
   color: white;
 }
