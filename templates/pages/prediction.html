@@ -9,7 +9,7 @@ Predictions
 
 <div class="content-container">
     <div class="row justify-content-center">
-        <div class="card col-lg-6" style="text-align: start;">
+        <div class="card col-lg-6" style="text-align: start;" id="form-card">
             <h3 class="card-header">Add some data to make a new passenger</h3>
             <div class="card-body">
                 <form id="form">
@@ -71,6 +71,17 @@ Predictions
                 </form>
             </div>
         </div>
+
+        <div class="card col-lg-6" style="text-align: start;" id="result-card">
+            <h3 class="card-header">Here is your result</h3>
+            <div class="card-body">
+                Here you can find the result data
+
+                <button class="btn" onclick="go_back_to_form()">
+                    Get another result
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -78,7 +89,28 @@ Predictions
 
 {% block js_scripts %}
 <script>
+    let formSend = false
     let form = document.getElementById('form')
+    let form_card = document.getElementById('form-card')
+    let result_card = document.getElementById('result-card')
+
+    if (formSend) {
+        form_card.style.display = "none"
+        result_card.style.display = "block"
+    } else {
+        form_card.style.display = "block"
+        result_card.style.display = "none"
+    }
+
+    function go_back_to_form() {
+        formSend = false
+
+        form_card.style.display = "block"
+        result_card.style.display = "none"
+        form.reset()
+    }
+
+
 
     form.addEventListener('submit', e => {
         e.preventDefault()
@@ -86,6 +118,9 @@ Predictions
         //const input = document.querySelector(`#${field}`)
         //self.validateFields(input)
         console.log("Form send")
+        formSend = true
+        form_card.style.display = "none"
+        result_card.style.display = "block"
         //})
     })
 

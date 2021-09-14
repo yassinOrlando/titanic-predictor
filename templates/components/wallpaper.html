@@ -6,7 +6,7 @@
         <p class="lead"> {{ lead }} </p> <br>
 
         {% if type == 'main' %}
-        <button class="btn btn-lg btn-success" type="button">Get your prediction</button>
+        <a class="btn btn-lg btn-success" href="{{ url_for('predictions_page') }}" role="button">Get your prediction</a>
         {% endif %}
     </div>
 </div>
