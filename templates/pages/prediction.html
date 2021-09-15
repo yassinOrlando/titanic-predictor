@@ -26,7 +26,7 @@ Predictions
                             required>
                     </div>
                     <div class="mb-3">
-                        <label for="age" class="form-label">Age</label>
+                        <label for="age" class="form-label">Age (0 to 99)</label>
                         <input type="number" min="0" max="99" class=" form-control" id="age" name="age" placeholder="25"
                             required>
                     </div>
@@ -47,17 +47,17 @@ Predictions
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="sibsp" class="form-label">Number of siblings and/or wife/husband</label>
+                        <label for="sibsp" class="form-label">Number of siblings and/or wife/husband (0 to 9)</label>
                         <input type="number" min="0" max="9" class=" form-control" id="sibsp" name="sibsp"
                             placeholder="2" required>
                     </div>
                     <div class="mb-3">
-                        <label for="parch" class="form-label">Number of parents and/or children onboard</label>
+                        <label for="parch" class="form-label">Number of parents and/or children onboard (0 to 9)</label>
                         <input type="number" min="0" max="9" class=" form-control" id="parch" name="parch"
                             placeholder="2" required>
                     </div>
                     <div class="mb-3">
-                        <label for="fare" class="form-label">Fare</label>
+                        <label for="fare" class="form-label">Fare  (0 to 100)</label>
                         <input type="number" min="0" max="100" class=" form-control" id="fare" name="fare"
                             placeholder="72.1500" required>
                     </div>
@@ -108,7 +108,7 @@ Predictions
                         <li>asd</li>
                     </ul>
                 </div>
-                
+
 
                 <div>
                     <h2>Your probability: </h2>
@@ -147,6 +147,25 @@ Predictions
                 <button class="btn btn-warning" onclick="go_back_to_form()">
                     Get another result
                 </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="error-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Error on form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Please check that all inputs have the correct format
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
