@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify
+from flask_cors import cross_origin
 import numpy as np
 import pandas as pd
 
@@ -31,6 +32,7 @@ def predictions_page():
     return render_template('pages/prediction.html')
 
 @app.route("/give-prediction-info", methods=['GET', 'POST'])
+@cross_origin()
 def give_prediction():
     return jsonify([
         {
