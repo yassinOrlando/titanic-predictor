@@ -28,6 +28,13 @@ form.addEventListener("submit", (e) => {
 
   let form_fields = document.getElementById("form").elements;
   console.log(form_fields);
+
+  /*if (!form.checkValidity()) {
+    e.stopPropagation()
+  }
+
+  form.classList.add('was-validated')*/
+
   validate_inputs(form_fields);
   //})
 });
@@ -42,6 +49,8 @@ function validate_inputs(form_fields) {
     form_fields["name"].value == null
   ) {
     console.log("Error on name");
+    let input_error = document.getElementById("name");
+    input_error.className += " is-invalid";
     has_error = true;
   }
 
@@ -51,15 +60,8 @@ function validate_inputs(form_fields) {
     form_fields["age"].value == null
   ) {
     console.log("Error on age");
-    has_error = true;
-  }
-
-  if (
-    form_fields["age"].value < 0 ||
-    form_fields["age"].value > 99 ||
-    form_fields["age"].value == null
-  ) {
-    console.log("Error on age");
+    let input_error = document.getElementById("age");
+    input_error.className += " is-invalid";
     has_error = true;
   }
 
@@ -69,6 +71,8 @@ function validate_inputs(form_fields) {
     form_fields["class"].value == null
   ) {
     console.log("Error on class");
+    let input_error = document.getElementById("class");
+    input_error.className += " is-invalid";
     has_error = true;
   }
 
@@ -77,6 +81,8 @@ function validate_inputs(form_fields) {
     form_fields["sex"].value == null
   ) {
     console.log("Error on sex");
+    let input_error = document.getElementById("sex");
+    input_error.className += " is-invalid";
     has_error = true;
   }
 
@@ -86,6 +92,8 @@ function validate_inputs(form_fields) {
     form_fields["sibsp"].value == null
   ) {
     console.log("Error on sibsp");
+    let input_error = document.getElementById("sibsp");
+    input_error.className += " is-invalid";
     has_error = true;
   }
 
@@ -95,6 +103,8 @@ function validate_inputs(form_fields) {
     form_fields["parch"].value == null
   ) {
     console.log("Error on parch");
+    let input_error = document.getElementById("parch");
+    input_error.className += " is-invalid";
     has_error = true;
   }
 
@@ -104,6 +114,8 @@ function validate_inputs(form_fields) {
     form_fields["fare"].value == null
   ) {
     console.log("Error on parch");
+    let input_error = document.getElementById("fare");
+    input_error.className += " is-invalid";
     has_error = true;
   }
 
@@ -113,6 +125,8 @@ function validate_inputs(form_fields) {
     form_fields["embarked"].value == null
   ) {
     console.log("Error on embarked");
+    let input_error = document.getElementById("embarked");
+    input_error.className += " is-invalid";
     has_error = true;
   }
 
@@ -120,14 +134,15 @@ function validate_inputs(form_fields) {
     //let modal = new bootstrap.Modal(document.getElementById("error-modal"));
     //modal.show();
     console.log("Can not send form because it has errors");
+    let modal = new bootstrap.Modal(document.getElementById("error-modal"));
+    modal.show();
+
+    return;
   } else {
     formSend = true;
     form_card.style.display = "none";
     result_card.style.display = "block";
   }
-
-  let modal = new bootstrap.Modal(document.getElementById("error-modal"));
-  modal.show();
 
   const tmp_passenger = {
     name: document.getElementById("name").value,
@@ -140,7 +155,7 @@ function validate_inputs(form_fields) {
     embarked: document.getElementById("embarked").value,
   };
 
-  // Here I will add the input validations
+  sendData(tmp_passenger);
 }
 
 function sendData(passenger) {

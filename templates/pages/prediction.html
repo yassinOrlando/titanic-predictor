@@ -22,17 +22,17 @@ Predictions
 
                     <div class="mb-3">
                         <label for="name" class="form-label">Passenger name</label>
-                        <input type="text" class=" form-control" id="name" name="name" placeholder="Jon/Jane Doe"
+                        <input type="text" onfocus="this.className = 'form-control'" class="form-control" id="name" name="name" placeholder="Jon/Jane Doe"
                             required>
                     </div>
                     <div class="mb-3">
                         <label for="age" class="form-label">Age (0 to 99)</label>
-                        <input type="number" min="0" max="99" class=" form-control" id="age" name="age" placeholder="25"
+                        <input type="number" onfocus="this.className = 'form-control'" min="0" max="99" class=" form-control" id="age" name="age" placeholder="25"
                             required>
                     </div>
                     <div class="mb-3">
                         <label for="class" class="form-label">Ticket class</label>
-                        <select class="form-select" id="class" name="class" aria-label="Default select example"
+                        <select onfocus="this.className = 'form-control'" class="form-select" id="class" name="class" aria-label="Default select example"
                             required>
                             <option value="1" selected>1st class</option>
                             <option value="2">2nd class</option>
@@ -41,29 +41,29 @@ Predictions
                     </div>
                     <div class="mb-3">
                         <label for="sex" class="form-label">Sex</label>
-                        <select class="form-select" id="sex" name="sex" aria-label="Default select example" required>
+                        <select onfocus="this.className = 'form-control'" class="form-select" id="sex" name="sex" aria-label="Default select example" required>
                             <option value="0" selected>Female</option>
                             <option value="1">Male</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="sibsp" class="form-label">Number of siblings and/or wife/husband (0 to 9)</label>
-                        <input type="number" min="0" max="9" class=" form-control" id="sibsp" name="sibsp"
+                        <input onfocus="this.className = 'form-control'" type="number" min="0" max="9" class=" form-control" id="sibsp" name="sibsp"
                             placeholder="2" required>
                     </div>
                     <div class="mb-3">
                         <label for="parch" class="form-label">Number of parents and/or children onboard (0 to 9)</label>
-                        <input type="number" min="0" max="9" class=" form-control" id="parch" name="parch"
+                        <input onfocus="this.className = 'form-control'" type="number" min="0" max="9" class=" form-control" id="parch" name="parch"
                             placeholder="2" required>
                     </div>
                     <div class="mb-3">
-                        <label for="fare" class="form-label">Fare  (0 to 100)</label>
-                        <input type="number" min="0" max="100" class=" form-control" id="fare" name="fare"
+                        <label for="fare" class="form-label">Fare (0 to 100)</label>
+                        <input onfocus="this.className = 'form-control'" type="number" min="0" max="100" class=" form-control" id="fare" name="fare"
                             placeholder="72.1500" required>
                     </div>
                     <div class="mb-3">
                         <label for="embarked" class="form-label">Embarked</label>
-                        <select class="form-select" id="embarked" name="embarked" aria-label="Default select example"
+                        <select onfocus="this.className = 'form-control'" class="form-select" id="embarked" name="embarked" aria-label="Default select example"
                             required>
                             <option value="0" selected>S</option>
                             <option value="1">C</option>
