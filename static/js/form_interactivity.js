@@ -1,3 +1,5 @@
+'use strict'
+
 let formSend = false;
 let form = document.getElementById("form");
 let form_card = document.getElementById("form-card");

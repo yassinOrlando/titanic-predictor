@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 import numpy as np
 import pandas as pd
 
@@ -29,3 +29,14 @@ def plots():
 @app.route("/prediction")
 def predictions_page():
     return render_template('pages/prediction.html')
+
+@app.route("/give-prediction-info", methods=['GET', 'POST'])
+def give_prediction():
+    return jsonify([
+        {
+            "my": "prediction"
+        },
+        {
+            "my": "prediction"
+        }
+    ])
