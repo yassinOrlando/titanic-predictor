@@ -65,9 +65,9 @@ Predictions
                         <label for="embarked" class="form-label">Embarked</label>
                         <select onfocus="this.className = 'form-control'" class="form-select" id="embarked" name="embarked" aria-label="Default select example"
                             required>
-                            <option value="0" selected>S</option>
-                            <option value="1">C</option>
-                            <option value="2">Q</option>
+                            <option value="0">Q</option>
+                            <option value="1" selected>S</option>
+                            <option value="2">C</option>
                         </select>
                     </div>
 
@@ -154,7 +154,7 @@ Predictions
 
 
 
-<div class="modal fade" id="error-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="error-modal-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -171,4 +171,20 @@ Predictions
     </div>
 </div>
 
+<div class="modal fade" id="error-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Error on request</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                An error has ocurred. Please try again
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

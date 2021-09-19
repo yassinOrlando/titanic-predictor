@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 let formSend = false;
 let form = document.getElementById("form");
@@ -133,10 +133,12 @@ function validate_inputs(form_fields) {
   }
 
   if (has_error) {
-    //let modal = new bootstrap.Modal(document.getElementById("error-modal"));
+    //let modal = new bootstrap.Modal(document.getElementById("error-modal-form"));
     //modal.show();
     console.log("Can not send form because it has errors");
-    let modal = new bootstrap.Modal(document.getElementById("error-modal"));
+    let modal = new bootstrap.Modal(
+      document.getElementById("error-modal-form")
+    );
     modal.show();
 
     return;
@@ -147,14 +149,14 @@ function validate_inputs(form_fields) {
   }
 
   const tmp_passenger = {
-    name: document.getElementById("name").value,
-    age: document.getElementById("age").value,
-    psgClass: document.getElementById("class").value,
-    sex: document.getElementById("sex").value,
-    sibsp: document.getElementById("sibsp").value,
-    parch: document.getElementById("parch").value,
-    fare: document.getElementById("fare").value,
-    embarked: document.getElementById("embarked").value,
+    //"Name": document.getElementById("name").value,
+    "Age": parseInt(form_fields["age"].value),
+    "Pclass": parseInt(form_fields["class"].value),
+    "Sex": parseInt(form_fields["sex"].value),
+    "SibSp": parseInt(form_fields["sibsp"].value),
+    "Parch": parseInt(form_fields["parch"].value),
+    "Fare": parseInt(form_fields["fare"].value),
+    "Embarked": parseInt(form_fields["embarked"].value)
   };
 
   sendData(tmp_passenger);
@@ -163,4 +165,20 @@ function validate_inputs(form_fields) {
 function sendData(passenger) {
   console.log(passenger);
   console.log("Sending data to the ML model");
+
+  fetch("http://localhost:5000/give-prediction-info", {
+    method: "POST",
+    body: JSON.stringify(passenger),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => {
+      let modal = new bootstrap.Modal(document.getElementById("error-modal"));
+      modal.show();
+      console.log(error);
+      go_back_to_form();
+    });
 }

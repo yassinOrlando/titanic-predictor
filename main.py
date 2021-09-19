@@ -35,7 +35,7 @@ def plots():
 def predictions_page():
     return render_template('pages/prediction.html')
 
-@app.route("/give-prediction-info", methods=['GET', 'POST'])
+@app.route("/give-prediction-info", methods=['POST'])
 @cross_origin()
 def give_prediction():
     data = request.get_json()
