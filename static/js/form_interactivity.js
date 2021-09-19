@@ -137,7 +137,7 @@ function validate_inputs(form_fields) {
   }
 
   const tmp_passenger = {
-    //"Name": document.getElementById("name").value,
+    Name: document.getElementById("name").value,
     Age: parseInt(form_fields["age"].value),
     Pclass: parseInt(form_fields["class"].value),
     Sex: parseInt(form_fields["sex"].value),
@@ -164,7 +164,7 @@ function send_data(passenger) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      render_result(data);
+      render_result(data, passenger);
     })
     .catch((error) => {
       let modal = new bootstrap.Modal(document.getElementById("error-modal"));
@@ -174,17 +174,22 @@ function send_data(passenger) {
     });
 }
 
-function render_result(prediction) {
-  let hola = "Lorem ipsum";
+function render_result(prediction, psgData) {
   document.getElementById("psg-data").innerHTML = `
-    <li>Name: ${hola}</li>
-    <li>Age: ${hola}</li>
-    <li>Class: ${hola}</li>
-    <li>Sex: ${hola}</li>
-    <li>Siblings and/or wife/husband: ${hola}</li>
-    <li>Parents and/or children onboard: ${hola}</li>
-    <li>Fare: ${hola}</li>
-    <li>Embarked: ${hola}</li>
+    <li>Name: ${psgData["Name"]}</li>
+    <li>Age: ${psgData["Age"]}</li>
+    <li>Class: ${psgData["Pclass"]}</li>
+    <li>Sex: ${psgData["Sex"] == 0 ? "Female" : "Male"}</li>
+    <li>Siblings and/or wife/husband: ${psgData["SibSp"]}</li>
+    <li>Parents and/or children onboard: ${psgData["Parch"]}</li>
+    <li>Fare: $ ${psgData["Fare"]}</li>
+    <li>Embarked: ${
+      psgData["Embarked"] == 0
+        ? "Queenstown"
+        : psgData["Embarked"] == 1
+        ? "Southampton"
+        : "Cherbourg"
+    }</li>
   `;
 
   let die_beredict_component = document.getElementById("die-beredict");
