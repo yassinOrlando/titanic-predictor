@@ -1,8 +1,7 @@
+import pandas as pd
+from oraculo import Oraculo
 from flask import Flask, render_template, jsonify, request
 from flask_cors import cross_origin
-import pandas as pd
-
-from oraculo import Oraculo
 
 app = Flask(__name__)
 
