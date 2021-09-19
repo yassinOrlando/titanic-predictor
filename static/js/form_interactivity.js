@@ -5,13 +5,25 @@ let form = document.getElementById("form");
 let form_card = document.getElementById("form-card");
 let result_card = document.getElementById("result-card");
 
-/*if (formSend) {
+if (formSend) {
   form_card.style.display = "none";
   result_card.style.display = "block";
 } else {
   form_card.style.display = "block";
   result_card.style.display = "none";
-} */
+}
+
+function set_loading(is_loading) {
+  if (is_loading) {
+    document.getElementById("loader").style.display = "flex";
+    document.getElementById("prediction-content").style.display = "none";
+  } else {
+    document
+      .getElementById("loader")
+      .style.setProperty("display", "none", "important");
+    document.getElementById("prediction-content").style.display = "block";
+  }
+}
 
 function go_back_to_form() {
   formSend = false;
@@ -154,6 +166,8 @@ function send_data(passenger) {
   console.log(passenger);
   console.log("Sending data to the ML model");
 
+  set_loading(true);
+
   fetch("http://localhost:5000/give-prediction-info", {
     method: "POST",
     body: JSON.stringify(passenger),
@@ -165,12 +179,14 @@ function send_data(passenger) {
     .then((data) => {
       console.log(data);
       render_result(data, passenger);
+      set_loading(false);
     })
     .catch((error) => {
       let modal = new bootstrap.Modal(document.getElementById("error-modal"));
       modal.show();
       console.log(error);
       go_back_to_form();
+      set_loading(false);
     });
 }
 
@@ -197,14 +213,16 @@ function render_result(prediction, psgData) {
   let surv_prob_component = document.getElementById("surv-prob");
   let die_prob_component = document.getElementById("die-prob");
 
-  prediction["probabilities"][0][1] = prediction["probabilities"][0][1].toFixed(2) * 100
-  prediction["probabilities"][0][0] = prediction["probabilities"][0][0].toFixed(2) * 100
+  prediction["probabilities"][0][1] =
+    prediction["probabilities"][0][1].toFixed(2) * 100;
+  prediction["probabilities"][0][0] =
+    prediction["probabilities"][0][0].toFixed(2) * 100;
 
-  surv_prob_component.innerHTML = `${prediction["probabilities"][0][1]}%`
-  die_prob_component.innerHTML = `${prediction["probabilities"][0][0]}%`
+  surv_prob_component.innerHTML = `${prediction["probabilities"][0][1]}%`;
+  die_prob_component.innerHTML = `${prediction["probabilities"][0][0]}%`;
 
-  surv_prob_component.style.width = `${prediction["probabilities"][0][1]}%`
-  die_prob_component.style.width = `${prediction["probabilities"][0][0]}%`
+  surv_prob_component.style.width = `${prediction["probabilities"][0][1]}%`;
+  die_prob_component.style.width = `${prediction["probabilities"][0][0]}%`;
 
   // Shows the div with the final beredict
   let die_beredict_component = document.getElementById("die-beredict");

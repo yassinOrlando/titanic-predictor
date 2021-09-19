@@ -82,6 +82,11 @@ main {
 }
 
 /* In the result of the model */
+#loader {
+  height: 40vh !important;
+  align-items: center;
+}
+
 #prob-container {
   width: 100%;
 }
@@ -92,7 +97,7 @@ main {
   padding: 5px;
 }
 
-#surv-prob{
+#surv-prob {
   background-color: green;
   width: 80%;
   min-width: 10% !important;
@@ -120,16 +125,15 @@ main {
   padding: 15px;
 }
 
-.surv-beredict{
+.surv-beredict {
   border: 3px solid green;
   color: green;
 }
 
-.die-beredict{
+.die-beredict {
   border: 3px solid red;
   color: red;
 }
-
 
 #footer {
   margin-top: 10px;

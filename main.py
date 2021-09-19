@@ -1,6 +1,5 @@
 from flask import Flask, render_template, jsonify, request
 from flask_cors import cross_origin
-import numpy as np
 import pandas as pd
 
 from oraculo import Oraculo
