@@ -23,22 +23,12 @@ function go_back_to_form() {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  //self.fields.forEach(field => {
-  //const input = document.querySelector(`#${field}`)
-  //self.validateFields(input)
   console.log("Form send");
 
   let form_fields = document.getElementById("form").elements;
   console.log(form_fields);
 
-  /*if (!form.checkValidity()) {
-    e.stopPropagation()
-  }
-
-  form.classList.add('was-validated')*/
-
   validate_inputs(form_fields);
-  //})
 });
 
 function validate_inputs(form_fields) {
@@ -133,8 +123,6 @@ function validate_inputs(form_fields) {
   }
 
   if (has_error) {
-    //let modal = new bootstrap.Modal(document.getElementById("error-modal-form"));
-    //modal.show();
     console.log("Can not send form because it has errors");
     let modal = new bootstrap.Modal(
       document.getElementById("error-modal-form")
@@ -150,19 +138,19 @@ function validate_inputs(form_fields) {
 
   const tmp_passenger = {
     //"Name": document.getElementById("name").value,
-    "Age": parseInt(form_fields["age"].value),
-    "Pclass": parseInt(form_fields["class"].value),
-    "Sex": parseInt(form_fields["sex"].value),
-    "SibSp": parseInt(form_fields["sibsp"].value),
-    "Parch": parseInt(form_fields["parch"].value),
-    "Fare": parseInt(form_fields["fare"].value),
-    "Embarked": parseInt(form_fields["embarked"].value)
+    Age: parseInt(form_fields["age"].value),
+    Pclass: parseInt(form_fields["class"].value),
+    Sex: parseInt(form_fields["sex"].value),
+    SibSp: parseInt(form_fields["sibsp"].value),
+    Parch: parseInt(form_fields["parch"].value),
+    Fare: parseInt(form_fields["fare"].value),
+    Embarked: parseInt(form_fields["embarked"].value),
   };
 
-  sendData(tmp_passenger);
+  send_data(tmp_passenger);
 }
 
-function sendData(passenger) {
+function send_data(passenger) {
   console.log(passenger);
   console.log("Sending data to the ML model");
 
@@ -170,15 +158,43 @@ function sendData(passenger) {
     method: "POST",
     body: JSON.stringify(passenger),
     headers: {
-      'Content-Type': 'application/json'
-    }
+      "Content-Type": "application/json",
+    },
   })
     .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+      console.log(data);
+      render_result(data);
+    })
     .catch((error) => {
       let modal = new bootstrap.Modal(document.getElementById("error-modal"));
       modal.show();
       console.log(error);
       go_back_to_form();
     });
+}
+
+function render_result(prediction) {
+  let hola = "Lorem ipsum";
+  document.getElementById("psg-data").innerHTML = `
+    <li>Name: ${hola}</li>
+    <li>Age: ${hola}</li>
+    <li>Class: ${hola}</li>
+    <li>Sex: ${hola}</li>
+    <li>Siblings and/or wife/husband: ${hola}</li>
+    <li>Parents and/or children onboard: ${hola}</li>
+    <li>Fare: ${hola}</li>
+    <li>Embarked: ${hola}</li>
+  `;
+
+  let die_beredict_component = document.getElementById("die-beredict");
+  let surv_beredict_component = document.getElementById("surv-beredict");
+
+  if (prediction["beredict"][0] == 1) {
+    die_beredict_component.style.display = "none";
+    surv_beredict_component.style.display = "flex";
+  } else {
+    die_beredict_component.style.display = "flex";
+    surv_beredict_component.style.display = "none";
+  }
 }

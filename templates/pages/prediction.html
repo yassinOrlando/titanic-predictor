@@ -62,12 +62,12 @@ Predictions
                             placeholder="72.1500" required>
                     </div>
                     <div class="mb-3">
-                        <label for="embarked" class="form-label">Embarked</label>
+                        <label for="embarked" class="form-label">Where did you mount the ship? (Embarked)</label>
                         <select onfocus="this.className = 'form-control'" class="form-select" id="embarked" name="embarked" aria-label="Default select example"
                             required>
-                            <option value="0">Q</option>
-                            <option value="1" selected>S</option>
-                            <option value="2">C</option>
+                            <option value="0">Queenstown</option>
+                            <option value="1" selected>Southampton</option>
+                            <option value="2">Cherbourg</option>
                         </select>
                     </div>
 
@@ -97,15 +97,8 @@ Predictions
                     <p>
                         Your data:
                     </p>
-                    <ul>
-                        <li>asd</li>
-                        <li>asd</li>
-                        <li>asd</li>
-                        <li>asd</li>
-                        <li>asd</li>
-                        <li>asd</li>
-                        <li>asd</li>
-                        <li>asd</li>
+                    <ul id="psg-data">
+                        <!-- Here you will find the form input data -->
                     </ul>
                 </div>
 
@@ -135,11 +128,11 @@ Predictions
                 <br>
 
                 <h2>Final prediction</h2>
-                <div class="final-beredict surv-beredict">
+                <div class="final-beredict surv-beredict" id="surv-beredict">
                     <h3> Survived </h3>
                 </div>
 
-                <div class="final-beredict die-beredict">
+                <div class="final-beredict die-beredict" id="die-beredict">
                     <h4> Not survived </h4>
                 </div>
             </div>
