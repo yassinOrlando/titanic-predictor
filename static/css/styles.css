@@ -95,10 +95,14 @@ main {
 #surv-prob{
   background-color: green;
   width: 80%;
+  min-width: 10% !important;
+  max-width: 90% !important;
 }
 #die-prob {
   background-color: red;
   width: 20%;
+  max-width: 90% !important;
+  min-width: 10% !important;
 }
 
 .final-beredict {

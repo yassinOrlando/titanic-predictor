@@ -175,6 +175,7 @@ function send_data(passenger) {
 }
 
 function render_result(prediction, psgData) {
+  // Show the user data sended to the model
   document.getElementById("psg-data").innerHTML = `
     <li>Name: ${psgData["Name"]}</li>
     <li>Age: ${psgData["Age"]}</li>
@@ -192,6 +193,20 @@ function render_result(prediction, psgData) {
     }</li>
   `;
 
+  // Show the probabilities
+  let surv_prob_component = document.getElementById("surv-prob");
+  let die_prob_component = document.getElementById("die-prob");
+
+  prediction["probabilities"][0][1] = prediction["probabilities"][0][1].toFixed(2) * 100
+  prediction["probabilities"][0][0] = prediction["probabilities"][0][0].toFixed(2) * 100
+
+  surv_prob_component.innerHTML = `${prediction["probabilities"][0][1]}%`
+  die_prob_component.innerHTML = `${prediction["probabilities"][0][0]}%`
+
+  surv_prob_component.style.width = `${prediction["probabilities"][0][1]}%`
+  die_prob_component.style.width = `${prediction["probabilities"][0][0]}%`
+
+  // Shows the div with the final beredict
   let die_beredict_component = document.getElementById("die-beredict");
   let surv_beredict_component = document.getElementById("surv-beredict");
 
