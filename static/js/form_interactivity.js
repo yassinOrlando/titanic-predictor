@@ -168,7 +168,8 @@ function send_data(passenger) {
 
   set_loading(true);
 
-  fetch("http://localhost:5000/give-prediction-info", {
+  // in dev "http://localhost:5000/give-prediction-info"
+  fetch("https://titanic-predictions.herokuapp.com/give-prediction-info", {
     method: "POST",
     body: JSON.stringify(passenger),
     headers: {
